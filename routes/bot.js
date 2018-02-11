@@ -14,7 +14,8 @@ router.get('/', function (req, res, next) {
       bot.hears(/buy/i, (ctx) => ctx.reply('Buy-buy!'))
       bot.on('sticker', (ctx) => ctx.reply('👍'))
       
-      bot.startPolling()
+      bot.startPolling();
+      res.send('Telegraf is hearing!');
 });
 
 module.exports = router;

@@ -78,7 +78,8 @@ router.get('/', function (req, res, next) {
 
   Promise.all(promises)
     .then(data => {
-      res.send(JSON.stringify(objs));
+      //res.send(JSON.stringify(objs));
+      res.send({success: true, msg: "Daily readings are ready to go."});
     });
 
 });
