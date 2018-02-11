@@ -8,7 +8,7 @@ var dotenv = require('dotenv').config();
 
 
 var db = require('./models/db');
-// var index = require('./routes/index');
+var index = require('./routes/index');
 var readings = require('./routes/readings');
 var bot = require('./routes/bot');
 
@@ -27,13 +27,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-//app.use('/', index);
+app.use('/', index);
 app.use('/run', readings);
 app.use('/bot', bot);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
+  err.message = "Not Found22";
   err.status = 404;
   next(err);
 });
@@ -46,7 +47,9 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  console.error(err.message);
+  // res.render('error');
+  res.send(err);
 });
 
 module.exports = app;
