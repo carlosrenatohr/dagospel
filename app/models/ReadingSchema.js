@@ -4,6 +4,8 @@ const db = require('./db.js');
 var Schema = mongoose.Schema;
 
 var ReadingSchema = new Schema({
+    dayname: {type: String},
+    dayval: String,
     title: {type: String, required: true},
     quote: String,
     content: String,
