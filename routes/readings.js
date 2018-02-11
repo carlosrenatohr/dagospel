@@ -56,6 +56,7 @@ router.get('/', function (req, res, next) {
             };
             objs[i] = new_reading;
             //console.log(new_reading);
+            //todo SET an function to create/update readings
             reading.create(new_reading);
             data = '';
           });
