@@ -9,8 +9,10 @@ router.get('/', function (req, res, next) {
         return ctx.reply('Welcome!')
       })
       
-      bot.command('help', (ctx) => {console.log('user requires help', ctx);ctx.reply('Try send a sticker!')})
-      bot.hears('hi', (ctx) => {console.log('ctx id after hi:', ctx); ctx.reply('Hey there!')})
+      bot.hears('hola', (ctx) => {
+          console.log('ctx id after hi:', ctx);
+          ctx.reply('Hola hola, ')})
+      bot.command('help', (ctx) => {console.log('user requires help', ctx.from);ctx.reply('Try send a sticker!')})
       bot.hears(/buy/i, (ctx) => ctx.reply('Buy-buy!'))
       bot.on('sticker', (ctx) => ctx.reply('👍'))
       
